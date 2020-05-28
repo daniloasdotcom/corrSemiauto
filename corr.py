@@ -7,16 +7,17 @@ import openpyxl
 import os
 
 # Insira o caminho para seu banco de dados
-path = "C:\\Users\\Usuário\\Desktop"
-os.chdir(path)
+os.chdir("C:\\Users\\Usuário\\Desktop")
 
 # Diga o nome do seu banco de dados e depois o nome da planilha
 wb = openpyxl.load_workbook('example.xlsx')
 sheet = wb['Planilha1']
+totalVar = 8
 
 
 listStocks = []
-for i in range(1, 10, 1):
+
+for i in range(1, (totalVar + 1), 1):
     nameStock = sheet.cell(row=1, column=i).value
     nameStock = str(nameStock)
     listStocks.append(nameStock)
@@ -100,10 +101,9 @@ while i > 1:
         arquivo.write('\n')
         arquivo.write('```')
         arquivo.write('\n')
-        #print('cor(dados, use="complete.obs)')
-        #print("cor.test(dado$" + list[m] + ",dado$" +list[n] +")")
+
         n += 1
         y = y + 1
-    #print(i-1)
+
     i = i - 1
     m = m + 1
