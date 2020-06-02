@@ -1,21 +1,18 @@
-# Insira o caminho para seu banco de dados
-# Diga o nome do seu banco de dados e depois o nome da planilha
 
-
-#Script para pegar dados de todas as ações - Rotina diária
 import openpyxl
 import os
 
-# Insira o caminho para seu banco de dados
+#1 Insira o caminho para seu banco de dados
 os.chdir("C:\\Users\\Usuário\\Desktop")
 
-# Diga o nome do seu banco de dados e depois o nome da planilha
+#2 Diga o nome do seu banco de dados, o nome da planilha e o total de variáveis que seu arquivo de dados possui
 wb = openpyxl.load_workbook('example.xlsx')
 sheet = wb['Planilha1']
 totalVar = 8
 
 
 listStocks = []
+
 
 for i in range(1, (totalVar + 1), 1):
     nameStock = sheet.cell(row=1, column=i).value
@@ -25,7 +22,7 @@ for i in range(1, (totalVar + 1), 1):
 
 texto = str(
     '---\n'
-    # Nas duas próximas linhas você pode editar o titulo do seu documento, nome do autor e data
+    #3 Nas três próximas linhas você pode editar o titulo do seu documento, nome do autor e data
     'title: "Correlação"\n'
     'author: "Danilo Andrade"\n'
     'date: "27 de maio de 2020"\n'
@@ -43,11 +40,11 @@ texto = str(
     'library(corrplot)\n'
     'getwd()\n'
     
-    # O endereço abaixo indicará para o RSudio onde está o seu arquivo
+    #4 O endereço abaixo indicará para o RSudio onde está o seu arquivo
     # Você deve editar ele também
     'setwd("C:/Users/Usuário/Desktop")\n'
     
-    # Diga o nome do seu banco de dados em formato .csv
+    #5 Diga o nome do seu banco de dados em formato .csv
     'dados<-read.xlsx("example.xlsx", sheetName = "Planilha1")\n'
     'dados\n'
     'str(dados)\n'
